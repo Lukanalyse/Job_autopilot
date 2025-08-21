@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<style>
+  body{font-family:Arial, sans-serif;margin:50px;line-height:1.6;max-width:800px;}
+  p   {text-align:justify;margin:0 0 12px 0;}
+
+  .top-space{margin-top:48px;}
+
+  table.entete{width:100%;border-collapse:collapse;margin-bottom:22px;}
+  td.gauche  {vertical-align:top;text-align:left;  width:60%;}
+  td.droite  {vertical-align:top;text-align:right; width:40%;}
+  .nom       {font-weight:700;}
+
+  /* Objet gras + souligné */
+  .objet{font-weight:700;text-decoration:underline;margin:14px 0 20px 0;}
+</style>
+</head>
+<body class="top-space">
+<br>
+<br>
+<br>
+<table class="entete">
+  <tr>
+    <!-- bloc candidat -->
+    <td class="gauche">
+      <span class="nom">{{ profil.nom|upper }} {{ profil.prenom }}</span><br>
+      {{ profil.ville }}<br>
+      {{ profil.email }}<br>
+      {{ profil.telephone }}<br>
+      {{ today }}
+    </td>
+
+    <!-- bloc entreprise, aligné à droite et placé juste après la date -->
+    <td class="droite">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br><!-- décale d’une ligne pour arriver sous la date -->
+      {{ offer.company }}<br>
+      {{ offer.company_desk }}
+      {{ offer.city }}
+    </td>
+  </tr>
+</table>
+<br>
+<br>
+
+{% set paras = body.split('\n\n') %}
+{% set objet_txt = paras[0]|replace('**','')|replace('_','')|trim %}
+
+<p class="objet"><strong><u>Objet&nbsp;: {{ objet_txt }}</u></strong></p>
+
+{% for para in paras[1:] %}
+  <p>{{ para }}</p>
+{% endfor %}
+
+<br>
+<p class="nom">{{ profil.prenom }} {{ profil.nom }}</p>
+
+</body>
+</html>

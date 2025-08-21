@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CV - {{ prenom }} {{ nom }}</title>
+   <style>
+
+/* ———————————————————— Structure générale ———————————————————— */
+body{
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 30px auto;
+    line-height: 1.35;
+}
+
+/* ———————————————————— Titres & en-tête ———————————————————— */
+h1{
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 4px 0;
+}
+.contact{
+    text-align: center;
+    color:#676;
+    margin-bottom:18px;
+}
+.section-title{
+    color:#173869;
+    font-weight:bold;
+    margin:22px 0 8px 0;
+    border-bottom:1px solid #173869;
+    padding-bottom:4px;
+}
+
+/* ———————————————————— Blocs expérience / formation ———————————————————— */
+.experience, .formation{ margin-top:4px; }
+
+.experience-header,
+.formation-header{
+    display:flex;
+    align-items:baseline;
+}
+
+.experience-title,
+.formation-title{
+    font-weight:bold;
+    font-size:16px;
+    flex:1;
+}
+
+.dates-lieu{
+    margin-left:auto;
+    text-align:right;
+    color:#676;
+    white-space:nowrap;
+}
+
+/* ———————————————————— Listes & paragraphes ———————————————————— */
+ul{ margin:4px 0 0 18px; padding-left:0; }
+
+p, li{
+    text-align:justify;
+    text-justify:inter-word;
+    hyphens:auto;
+    margin:3px 0;
+}
+
+/* ———————————————————— Compétences & langues ———————————————————— */
+.skills, .languages{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+</style>
+</head>
+<body>
+
+<h1>{{ prenom }} {{ nom }}</h1>
+<div class="contact">
+    {{ poste }} | {{ ville }} | {{ age }} ans<br>
+    {{ telephone }} • {{ email }}
+</div>
+
+<div class="section-title">Profil Professionnel</div>
+<p>{{ profil_pro }}</p>
+
+<div class="section-title">Expérience</div>
+
+<!-- blocs expérience (identiques à votre version) -->
+{% if xp_3_entreprise %}
+<div class="experience">
+    <div class="experience-header">
+        <div class="experience-title">{{ xp_3_entreprise }} – {{ xp_3_poste }}</div>
+        <div class="dates-lieu">{{ xp_3_ville }} | {{ xp_3_date_from }} – {{ xp_3_date_to }}</div>
+    </div>
+    <ul>
+        {% if xp_3_point_1 %}<li>{{ xp_3_point_1 }}</li>{% endif %}
+        {% if xp_3_point_2 %}<li>{{ xp_3_point_2 }}</li>{% endif %}
+        {% if xp_3_point_3 %}<li>{{ xp_3_point_3 }}</li>{% endif %}
+        {% if xp_3_point_4 %}<li>{{ xp_3_point_4 }}</li>{% endif %}
+        {% if xp_3_point_5 %}<li>{{ xp_3_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% if xp_2_entreprise %}
+<div class="experience">
+    <div class="experience-header">
+        <div class="experience-title">{{ xp_2_entreprise }} – {{ xp_2_poste }}</div>
+        <div class="dates-lieu">{{ xp_2_ville }} | {{ xp_2_date_from }} – {{ xp_2_date_to }}</div>
+    </div>
+    <ul>
+        {% if xp_2_point_1 %}<li>{{ xp_2_point_1 }}</li>{% endif %}
+        {% if xp_2_point_2 %}<li>{{ xp_2_point_2 }}</li>{% endif %}
+        {% if xp_2_point_3 %}<li>{{ xp_2_point_3 }}</li>{% endif %}
+        {% if xp_2_point_4 %}<li>{{ xp_2_point_4 }}</li>{% endif %}
+        {% if xp_2_point_5 %}<li>{{ xp_2_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% if xp_1_entreprise %}
+<div class="experience">
+    <div class="experience-header">
+        <div class="experience-title">{{ xp_1_entreprise }} – {{ xp_1_poste }}</div>
+        <div class="dates-lieu">{{ xp_1_ville }} | {{ xp_1_date_from }} – {{ xp_1_date_to }}</div>
+    </div>
+    <ul>
+        {% if xp_1_point_1 %}<li>{{ xp_1_point_1 }}</li>{% endif %}
+        {% if xp_1_point_2 %}<li>{{ xp_1_point_2 }}</li>{% endif %}
+        {% if xp_1_point_3 %}<li>{{ xp_1_point_3 }}</li>{% endif %}
+        {% if xp_1_point_4 %}<li>{{ xp_1_point_4 }}</li>{% endif %}
+        {% if xp_1_point_5 %}<li>{{ xp_1_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="section-title">Formation</div>
+
+<!-- blocs formation (identiques, mais déjà alignés avec dates) -->
+{% if formation_3_nom %}
+<div class="formation">
+    <div class="formation-header">
+        <div class="formation-title">{{ formation_3_nom }} – {{ formation_3_spe }}</div>
+        <div class="dates-lieu">{{ formation_3_ville }} | {{ formation_3_date_from }} – {{ formation_3_date_to }}</div>
+    </div>
+    <ul>
+        {% if formation_3_point_1 %}<li>{{ formation_3_point_1 }}</li>{% endif %}
+        {% if formation_3_point_2 %}<li>{{ formation_3_point_2 }}</li>{% endif %}
+        {% if formation_3_point_3 %}<li>{{ formation_3_point_3 }}</li>{% endif %}
+        {% if formation_3_point_4 %}<li>{{ formation_3_point_4 }}</li>{% endif %}
+        {% if formation_3_point_5 %}<li>{{ formation_3_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% if formation_2_nom %}
+<div class="formation">
+    <div class="formation-header">
+        <div class="formation-title">{{ formation_2_nom }} – {{ formation_2_spe }}</div>
+        <div class="dates-lieu">{{ formation_2_ville }} | {{ formation_2_date_from }} – {{ formation_2_date_to }}</div>
+    </div>
+    <ul>
+        {% if formation_2_point_1 %}<li>{{ formation_2_point_1 }}</li>{% endif %}
+        {% if formation_2_point_2 %}<li>{{ formation_2_point_2 }}</li>{% endif %}
+        {% if formation_2_point_3 %}<li>{{ formation_2_point_3 }}</li>{% endif %}
+        {% if formation_2_point_4 %}<li>{{ formation_2_point_4 }}</li>{% endif %}
+        {% if formation_2_point_5 %}<li>{{ formation_2_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% if formation_1_nom %}
+<div class="formation">
+    <div class="formation-header">
+        <div class="formation-title">{{ formation_1_nom }} – {{ formation_1_spe }}</div>
+        <div class="dates-lieu">{{ formation_1_ville }} | {{ formation_1_date_from }} – {{ formation_1_date_to }}</div>
+    </div>
+    <ul>
+        {% if formation_1_point_1 %}<li>{{ formation_1_point_1 }}</li>{% endif %}
+        {% if formation_1_point_2 %}<li>{{ formation_1_point_2 }}</li>{% endif %}
+        {% if formation_1_point_3 %}<li>{{ formation_1_point_3 }}</li>{% endif %}
+        {% if formation_1_point_4 %}<li>{{ formation_1_point_4 }}</li>{% endif %}
+        {% if formation_1_point_5 %}<li>{{ formation_1_point_5 }}</li>{% endif %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="section-title">Compétences</div>
+<p><strong>Compétences informatiques :</strong>
+    {% if compétence_1 %}{{ compétence_1 }}{% endif %}
+    {% if compétence_2 %} • {{ compétence_2 }}{% endif %}
+    {% if compétence_3 %} • {{ compétence_3 }}{% endif %}
+    {% if compétence_4 %} • {{ compétence_4 }}{% endif %}
+    {% if compétence_5 %} • {{ compétence_5 }}{% endif %}
+</p>
+<p><strong>Langues :</strong>
+    {% if langue_1 %}{{ langue_1 }} ({{ langue_1_niveau }}){% endif %}
+    {% if langue_2 %} • {{ langue_2 }} ({{ langue_2_niveau }}){% endif %}
+    {% if langue_3 %} • {{ langue_3 }} ({{ langue_3_niveau }}){% endif %}
+</p>
+
+{% if sport or musique or asso or loisir_1 or loisir_2 or loisir_3 or loisir_4 or loisir_5 %}
+<div class="section-title">Activités extra-scolaires</div>
+<p>
+    {# --- on construit dynamiquement la liste extras --- #}
+    {% set extras = [] %}
+
+    {# sport #}
+    {% if sport %}
+        {% set sport_txt = sport ~ (niveau_sport|default('', true) and ' (' ~ niveau_sport ~ ')') %}
+        {% set _ = extras.append(sport_txt) %}
+    {% endif %}
+
+    {# musique #}
+    {% if musique %}
+        {% set mus_txt = musique ~ (niveau_musique|default('', true) and ' (' ~ niveau_musique ~ ')') %}
+        {% set _ = extras.append(mus_txt) %}
+    {% endif %}
+
+    {# engagement associatif #}
+    {% if asso %}
+        {% set asso_txt = asso ~ (niveau_asso|default('', true) and ' (' ~ niveau_asso ~ ')') %}
+        {% set _ = extras.append(asso_txt) %}
+    {% endif %}
+
+    {# loisirs 1-5 #}
+    {% for loisir in [loisir_1, loisir_2, loisir_3, loisir_4, loisir_5] if loisir %}
+        {% set _ = extras.append(loisir) %}
+    {% endfor %}
+
+    {{ extras | join(' • ') }}
+</p>
+{% endif %}
+
+</body>
+</html>
